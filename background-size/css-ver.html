@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>css ver: background-size: cover;</title>
+    <link rel="stylesheet" href="../css/base.css" />
+    <style>
+        
+    </style>
+    <style>
+        body {
+            overflow: hidden;
+            /*for ie6*/
+            height: 100%;
+        }
+        #bg {
+            background: url(../imgs/bg.jpg) center center fixed no-repeat;
+            background-size: cover;
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../imgs/bg.jpg', sizingMethod='scale');
+            -ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../imgs/bg.jpg', sizingMethod='scale')";
+        }
+        .info {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            color: #FFF;
+        }
+        .info a {
+            color: #FFF;
+        }
+    </style>
+</head>
+<body>
+    <div id="bg"></div>
+    <div class="info">
+        <p>IE7+</p>
+        <p>IE 的 filter 只是一种非常粗糙的解决方法，resize 的时候造成了背景图的长宽比改变，不维持 ratio</p>
+        <p>Image via: <a href="http://www.pixiv.net/member_illust.php?mode=medium&illust_id=35633440" title="">http://www.pixiv.net/member_illust.php?mode=medium&illust_id=35633440</a></p>
+    </div>
+</body>
+</html>
