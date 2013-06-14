@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>backgronud-switch</title>
+    <link rel="stylesheet" href="../../css/base.css" />
+    <style>
+        .bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+        .bg li {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-position: center center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            opacity: 0;
+            transition: opacity 1s ease;
+        }
+        .bg .current {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+    <ul class="bg">
+        <li class="bg-img"></li>
+        <li class="bg-img"></li>
+        <li class="bg-img"></li>
+        <li class="bg-img"></li>
+        <li class="bg-img"></li>
+        <li class="bg-img"></li>
+    </ul>
+    <script>
+        var intervalTime = 2000,
+            bgSwitchInterval,
+            li = document.querySelectorAll('.bg-img');
+
+        for(var i = 0, iLen = li.length; i < iLen; i++) {
+            li[i].style.backgroundImage = 'url(../../imgs/bg' + (i+1) + '.jpg)';
+        }
+
+        li[0].classList.add('current');
+
+        clearInterval(bgSwitchInterval);
+        bgSwitchInterval = setInterval(function() {
+            var current = document.querySelector('.current'),
+                next = current.nextElementSibling;
+            if(!next || next.nodeName.toLowerCase() !== 'li') {
+                next = li[0];
+            }
+            current.classList.remove('current');
+            next.classList.add('current');
+        }, intervalTime);
+
+    </script>
+</body>
+</html>
